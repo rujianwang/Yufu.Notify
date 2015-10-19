@@ -1,0 +1,454 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Abp.Web</name>
+    </assembly>
+    <members>
+        <member name="T:Abp.Auditing.WebAuditInfoProvider">
+            <summary>
+            Implements <see cref="T:Abp.Auditing.IAuditInfoProvider"/> to fill web specific audit informations.
+            </summary>
+        </member>
+        <member name="M:Abp.Auditing.WebAuditInfoProvider.#ctor">
+            <summary>
+            Creates a new <see cref="T:Abp.Auditing.WebAuditInfoProvider"/>.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Models.AjaxResponse">
+            <summary>
+            This class is used to create standard responses for ajax requests.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Models.AjaxResponse`1">
+            <summary>
+            This class is used to create standard responses for ajax requests.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.AjaxResponse`1.#ctor(`0)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Models.AjaxResponse"/> object with <see cref="P:Abp.Web.Models.AjaxResponse`1.Result"/> specified.
+            <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> is set as true.
+            </summary>
+            <param name="result">The actual result object of ajax request</param>
+        </member>
+        <member name="M:Abp.Web.Models.AjaxResponse`1.#ctor">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Models.AjaxResponse"/> object.
+            <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> is set as true.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.AjaxResponse`1.#ctor(System.Boolean)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Models.AjaxResponse"/> object with <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> specified.
+            </summary>
+            <param name="success">Indicates success status of the result</param>
+        </member>
+        <member name="M:Abp.Web.Models.AjaxResponse`1.#ctor(Abp.Web.Models.ErrorInfo,System.Boolean)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Models.AjaxResponse"/> object with <see cref="P:Abp.Web.Models.AjaxResponse`1.Error"/> specified.
+            <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> is set as false.
+            </summary>
+            <param name="error">Error details</param>
+            <param name="unAuthorizedRequest">Used to indicate that the current user has no privilege to perform this request</param>
+        </member>
+        <member name="P:Abp.Web.Models.AjaxResponse`1.Success">
+            <summary>
+            Indicates success status of the result.
+            Set <see cref="P:Abp.Web.Models.AjaxResponse`1.Error"/> if this value is false.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Models.AjaxResponse`1.Result">
+            <summary>
+            The actual result object of ajax request.
+            It is set if <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> is true.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Models.AjaxResponse`1.Error">
+            <summary>
+            Error details (Must and only set if <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> is false).
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Models.AjaxResponse`1.UnAuthorizedRequest">
+            <summary>
+            This property can be used to indicate that the current user has no privilege to perform this request.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.AjaxResponse.#ctor">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Models.AjaxResponse"/> object.
+            <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> is set as true.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.AjaxResponse.#ctor(System.Boolean)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Models.AjaxResponse"/> object with <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> specified.
+            </summary>
+            <param name="success">Indicates success status of the result</param>
+        </member>
+        <member name="M:Abp.Web.Models.AjaxResponse.#ctor(System.Object)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Models.AjaxResponse"/> object with <see cref="P:Abp.Web.Models.AjaxResponse`1.Result"/> specified.
+            <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> is set as true.
+            </summary>
+            <param name="result">The actual result object of ajax request</param>
+        </member>
+        <member name="M:Abp.Web.Models.AjaxResponse.#ctor(Abp.Web.Models.ErrorInfo,System.Boolean)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Models.AjaxResponse"/> object with <see cref="P:Abp.Web.Models.AjaxResponse`1.Error"/> specified.
+            <see cref="P:Abp.Web.Models.AjaxResponse`1.Success"/> is set as false.
+            </summary>
+            <param name="error">Error details</param>
+            <param name="unAuthorizedRequest">Used to indicate that the current user has no privilege to perform this request</param>
+        </member>
+        <member name="T:Abp.Web.Models.ErrorInfoBuilder">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.Models.IErrorInfoBuilder">
+            <summary>
+            This interface is used to build <see cref="T:Abp.Web.Models.ErrorInfo"/> objects.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.IErrorInfoBuilder.BuildForException(System.Exception)">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ErrorInfo"/> using the given <paramref name="exception"/> object.
+            </summary>
+            <param name="exception">The exception object</param>
+            <returns>Created <see cref="T:Abp.Web.Models.ErrorInfo"/> object</returns>
+        </member>
+        <member name="M:Abp.Web.Models.IErrorInfoBuilder.AddExceptionConverter(Abp.Web.Models.IExceptionToErrorInfoConverter)">
+            <summary>
+            Adds an <see cref="T:Abp.Web.Models.IExceptionToErrorInfoConverter"/> object.
+            </summary>
+            <param name="converter">Converter</param>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfoBuilder.#ctor(Abp.Web.Configuration.IAbpWebModuleConfiguration)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfoBuilder.BuildForException(System.Exception)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfoBuilder.AddExceptionConverter(Abp.Web.Models.IExceptionToErrorInfoConverter)">
+            <summary>
+            Adds an exception converter that is used by <paramref name="ForException"/> method.
+            </summary>
+            <param name="converter">Converter object</param>
+        </member>
+        <member name="P:Abp.Web.Models.ErrorInfoBuilder.Instance">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.Models.ValidationErrorInfo">
+            <summary>
+            Used to store information about a validation error.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.ValidationErrorInfo.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ValidationErrorInfo"/>.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.ValidationErrorInfo.#ctor(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ValidationErrorInfo"/>.
+            </summary>
+            <param name="message">Validation error message</param>
+        </member>
+        <member name="M:Abp.Web.Models.ValidationErrorInfo.#ctor(System.String,System.String[])">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ValidationErrorInfo"/>.
+            </summary>
+            <param name="message">Validation error message</param>
+            <param name="members">Related invalid members</param>
+        </member>
+        <member name="M:Abp.Web.Models.ValidationErrorInfo.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ValidationErrorInfo"/>.
+            </summary>
+            <param name="message">Validation error message</param>
+            <param name="member">Related invalid member</param>
+        </member>
+        <member name="P:Abp.Web.Models.ValidationErrorInfo.Message">
+            <summary>
+            Validation error message.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Models.ValidationErrorInfo.Members">
+            <summary>
+            Relate invalid members (fields/properties).
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Configuration.IAbpWebModuleConfiguration">
+            <summary>
+            Used to configure ABP Web module.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Configuration.IAbpWebModuleConfiguration.SendAllExceptionsToClients">
+            <summary>
+            If this is set to true, all exception and details are sent directly to clients on an error.
+            Default: false (ABP hides exception details from clients except special exceptions.)
+            </summary>
+        </member>
+        <member name="T:Abp.Configuration.Startup.AbpWebConfigurationExtensions">
+            <summary>
+            Defines extension methods to <see cref="T:Abp.Configuration.Startup.IModuleConfigurations"/> to allow to configure ABP Web module.
+            </summary>
+        </member>
+        <member name="M:Abp.Configuration.Startup.AbpWebConfigurationExtensions.AbpWeb(Abp.Configuration.Startup.IModuleConfigurations)">
+            <summary>
+            Used to configure ABP Web module.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.MultiTenancy.IMultiTenancyScriptManager">
+            <summary>
+            Used to create client scripts for multi-tenancy.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Navigation.INavigationScriptManager">
+            <summary>
+            Used to generate navigation scripts.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Navigation.INavigationScriptManager.GetScriptAsync">
+            <summary>
+            Used to generate navigation scripts.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Abp.Web.Sessions.ISessionScriptManager">
+            <summary>
+            Used to create client scripts for session.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.WebAssemblyFinder">
+            <summary>
+            This class is used to get all assemblies in bin folder of a web application.
+            </summary>
+        </member>
+        <member name="F:Abp.Web.WebAssemblyFinder.FindAssembliesSearchOption">
+            <summary>
+            The search option used to find assemblies in bin folder.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.WebAssemblyFinder.GetAllAssemblies">
+            <summary>
+            This return all assemblies in bin folder of the web application.
+            </summary>
+            <returns>List of assemblies</returns>
+        </member>
+        <member name="T:Abp.Web.Authorization.AuthorizationScriptManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Authorization.IAuthorizationScriptManager">
+            <summary>
+            This class is used to build and cache authorization script.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Authorization.IAuthorizationScriptManager.GetScriptAsync">
+            <summary>
+            Gets Javascript that contains all authorization information.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Authorization.AuthorizationScriptManager.#ctor(Abp.Authorization.IPermissionManager)">
+            <inheritdoc/>
+        </member>
+        <member name="M:Abp.Web.Authorization.AuthorizationScriptManager.GetScriptAsync">
+            <inheritdoc/>
+        </member>
+        <member name="P:Abp.Web.Authorization.AuthorizationScriptManager.AbpSession">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.HttpVerb">
+            <summary>
+            Represents an HTTP verb.
+            </summary>
+        </member>
+        <member name="F:Abp.Web.HttpVerb.Get">
+            <summary>
+            GET
+            </summary>
+        </member>
+        <member name="F:Abp.Web.HttpVerb.Post">
+            <summary>
+            POST
+            </summary>
+        </member>
+        <member name="F:Abp.Web.HttpVerb.Put">
+            <summary>
+            PUT
+            </summary>
+        </member>
+        <member name="F:Abp.Web.HttpVerb.Delete">
+            <summary>
+            DELETE
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Localization.AbpWebLocalizedMessages">
+            <summary>
+            This class is used to simplify getting localized messages in this assembly.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Localization.ILocalizationScriptManager">
+            <summary>
+            Define interface to get localization javascript.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Localization.ILocalizationScriptManager.GetScript">
+            <summary>
+            Gets Javascript that contains all localization information in current culture.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Localization.ILocalizationScriptManager.GetScript(System.Globalization.CultureInfo)">
+            <summary>
+            Gets Javascript that contains all localization information in given culture.
+            </summary>
+            <param name="cultureInfo">Culture to get script</param>
+        </member>
+        <member name="M:Abp.Web.Localization.LocalizationScriptManager.#ctor(Abp.Localization.ILocalizationManager)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Abp.Web.Localization.LocalizationScriptManager"/> class.
+            </summary>
+            <param name="localizationManager">Localization manager.</param>
+        </member>
+        <member name="M:Abp.Web.Localization.LocalizationScriptManager.GetScript">
+            <inheritdoc/>
+        </member>
+        <member name="M:Abp.Web.Localization.LocalizationScriptManager.GetScript(System.Globalization.CultureInfo)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.Models.ErrorInfo">
+            <summary>
+            Used to store information about an error.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfo.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ErrorInfo"/>.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfo.#ctor(System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ErrorInfo"/>.
+            </summary>
+            <param name="message">Error message</param>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfo.#ctor(System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ErrorInfo"/>.
+            </summary>
+            <param name="code">Error code</param>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfo.#ctor(System.Int32,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ErrorInfo"/>.
+            </summary>
+            <param name="code">Error code</param>
+            <param name="message">Error message</param>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfo.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ErrorInfo"/>.
+            </summary>
+            <param name="message">Error message</param>
+            <param name="details">Error details</param>
+        </member>
+        <member name="M:Abp.Web.Models.ErrorInfo.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Models.ErrorInfo"/>.
+            </summary>
+            <param name="code">Error code</param>
+            <param name="message">Error message</param>
+            <param name="details">Error details</param>
+        </member>
+        <member name="P:Abp.Web.Models.ErrorInfo.Code">
+            <summary>
+            Error code.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Models.ErrorInfo.Message">
+            <summary>
+            Error message.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Models.ErrorInfo.Details">
+            <summary>
+            Error details.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Models.ErrorInfo.ValidationErrors">
+            <summary>
+            Validation errors if exists.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.AbpWebModule">
+            <summary>
+            This module is used to use ABP in ASP.NET web applications.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.AbpWebModule.PreInitialize">
+            <inheritdoc/>
+        </member>
+        <member name="M:Abp.Web.AbpWebModule.Initialize">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.AbpWebApplication">
+            <summary>
+            This class is used to simplify starting of ABP system using <see cref="P:Abp.Web.AbpWebApplication.AbpBootstrapper"/> class..
+            Inherit from this class in global.asax instead of <see cref="T:System.Web.HttpApplication"/> to be able to start ABP system.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.AbpWebApplication.Application_Start(System.Object,System.EventArgs)">
+            <summary>
+            This method is called by ASP.NET system on web application's startup.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.AbpWebApplication.Application_BeginRequest(System.Object,System.EventArgs)">
+            <summary>
+            This method is called by ASP.NET system when a request starts.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.AbpWebApplication.Application_EndRequest(System.Object,System.EventArgs)">
+            <summary>
+            This method is called by ASP.NET system when a request ends.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.AbpWebApplication.AbpBootstrapper">
+            <summary>
+            Gets a reference to the <see cref="P:Abp.Web.AbpWebApplication.AbpBootstrapper"/> instance.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Models.IExceptionToErrorInfoConverter">
+            <summary>
+            This interface can be implemented to convert an <see cref="T:System.Exception"/> object to an <see cref="T:Abp.Web.Models.ErrorInfo"/> object. 
+            Implements Chain Of Responsibility pattern.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Models.IExceptionToErrorInfoConverter.Convert(System.Exception)">
+            <summary>
+            Converter method.
+            </summary>
+            <param name="exception">The exception</param>
+            <returns>Error info or null</returns>
+        </member>
+        <member name="P:Abp.Web.Models.IExceptionToErrorInfoConverter.Next">
+            <summary>
+            Next converter. If this converter decide this exception is not known, it can call Next.Convert(...).
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Settings.ISettingScriptManager">
+            <summary>
+            Define interface to get setting scripts
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Settings.ISettingScriptManager.GetScriptAsync">
+            <summary>
+            Gets Javascript that contains setting values.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Settings.SettingScriptManager">
+            <summary>
+            This class is used to build setting script.
+            </summary>
+        </member>
+    </members>
+</doc>

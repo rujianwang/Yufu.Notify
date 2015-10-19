@@ -1,0 +1,379 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Abp.Application</name>
+    </assembly>
+    <members>
+        <member name="T:Abp.Application.Authorization.AbpAuthorizationException">
+            <summary>
+            This exception is thrown on an unauthorized request.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.AbpAuthorizationException.#ctor">
+            <summary>
+            Contstructor.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.AbpAuthorizationException.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Contstructor for serializing.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.AbpAuthorizationException.#ctor(System.String)">
+            <summary>
+            Contstructor.
+            </summary>
+            <param name="message">Exception message</param>
+        </member>
+        <member name="M:Abp.Application.Authorization.AbpAuthorizationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Contstructor.
+            </summary>
+            <param name="message">Exception message</param>
+            <param name="innerException">Inner exception</param>
+        </member>
+        <member name="T:Abp.Application.Authorization.AuthorizationInterceptor">
+            <summary>
+            This class is used to intercept methods to make authorization if the method defined <see cref="T:Abp.Application.Authorization.AbpAuthorizeAttribute"/>.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Authorization.IAbpAuthorizeAttribute">
+            <summary>
+            Defines standard interface for authorization attributes.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Authorization.IAbpAuthorizeAttribute.Permissions">
+            <summary>
+            A list of permissions to authorize.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Authorization.IAbpAuthorizeAttribute.RequireAllPermissions">
+            <summary>
+            If this property is set to true, all of the <see cref="P:Abp.Application.Authorization.IAbpAuthorizeAttribute.Permissions"/> must be granted.
+            If it's false, at least one of the <see cref="P:Abp.Application.Authorization.IAbpAuthorizeAttribute.Permissions"/> must be granted.
+            Default: false.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Authorization.IAuthorizationService">
+            <summary>
+            Defines interface to use authorization system.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.IAuthorizationService.HasAnyOfPermissions(System.String[])">
+            <summary>
+            Checks if current user is authorized for any of the given permissions.
+            </summary>
+            <param name="permissionNames">Name of the permissions</param>
+            <returns>True: Yes, False: No.</returns>
+        </member>
+        <member name="M:Abp.Application.Authorization.IAuthorizationService.HasAllOfPermissions(System.String[])">
+            <summary>
+            Checks if current user is authorized for all of the given permissions.
+            </summary>
+            <param name="permissionNames">Name of the permissions</param>
+            <returns>True: Yes, False: No.</returns>
+        </member>
+        <member name="M:Abp.Application.Authorization.IAuthorizationService.GetAllPermissionNames">
+            <summary>
+            Gets all permission names.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Abp.Application.Authorization.IAuthorizationService.GetGrantedPermissionNames">
+            <summary>
+            Gets all granted permission names for current user.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Abp.Application.Authorization.NullAuthorizationService">
+            <summary>
+            This class is used as "null object" for <see cref="T:Abp.Application.Authorization.IAuthorizationService"/>.
+            It returns true for permission checks.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.NullAuthorizationService.#ctor">
+            <summary>
+            Private constructor to disable instancing.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Authorization.NullAuthorizationService.Instance">
+            <summary>
+            Gets Singleton instance of <see cref="T:Abp.Application.Authorization.NullAuthorizationService"/>.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Authorization.Permissions.IPermissionDefinitionProvider">
+            <summary>
+            This interface defines a class that provide a list of permissions those are used for authorization in the application.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.Permissions.IPermissionDefinitionProvider.GetPermissions(Abp.Application.Authorization.Permissions.PermissionDefinitionProviderContext)">
+            <summary>
+            Gets a list of <see cref="T:Abp.Application.Authorization.Permissions.PermissionDefinition"/> objects.
+            </summary>
+            <returns>Permissions</returns>
+        </member>
+        <member name="T:Abp.Application.Authorization.Permissions.PermissionDefinition">
+            <summary>
+            Represents a permission.
+            A permission is used to restrict functionalities of the application from unauthorized users.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.Permissions.PermissionDefinition.#ctor(System.String,Abp.Localization.LocalizableString,System.Boolean,Abp.Localization.LocalizableString)">
+            <summary>
+            Creates a new Permission.
+            </summary>
+            <param name="name">Unique name of the permission</param>
+            <param name="displayName">Display name of the permission</param>
+            <param name="isGrantedByDefault">Is this permission granted by default. Default value: false.</param>
+            <param name="description">A brief description for this permission</param>
+        </member>
+        <member name="P:Abp.Application.Authorization.Permissions.PermissionDefinition.Name">
+            <summary>
+            Unique name of the permission.
+            This is the key name to grant permissions.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Authorization.Permissions.PermissionDefinition.DisplayName">
+            <summary>
+            Display name of the permission.
+            This can be used to show permission to the user.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Authorization.Permissions.PermissionDefinition.Description">
+            <summary>
+            A brief description for this permission.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Authorization.Permissions.PermissionDefinition.IsGrantedByDefault">
+            <summary>
+            Is this permission granted by default.
+            Default value: false.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Authorization.Permissions.IPermissionDefinitionManager">
+            <summary>
+            Permission manager.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.Permissions.IPermissionDefinitionManager.GetPermissionOrNull(System.String)">
+            <summary>
+            Gets <see cref="T:Abp.Application.Authorization.Permissions.PermissionDefinition"/> object with given <see cref="!:permissionName"/> or returns null
+            if there is no permission with given <see cref="!:permissionName"/>.
+            </summary>
+            <param name="permissionName">Unique name of the permission</param>
+        </member>
+        <member name="M:Abp.Application.Authorization.Permissions.IPermissionDefinitionManager.GetAllPermissions">
+            <summary>
+            Gets all permission definitions.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Authorization.Permissions.PermissionDefinitionManager">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Authorization.Permissions.PermissionDefinitionProviderContext">
+            <summary>
+            PermissionDefinitionProviderContext.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.ApplicationService">
+            <summary>
+            This class can be used as a base class for application services. 
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Services.ApplicationService.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Services.ApplicationService.L(System.String)">
+            <summary>
+            Gets localized string for given key name and current language.
+            </summary>
+            <param name="name">Key name</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Application.Services.ApplicationService.L(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets localized string for given key name and specified culture information.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="P:Abp.Application.Services.ApplicationService.CurrentSession">
+            <summary>
+            Gets current session informations.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.ApplicationService.Logger">
+            <summary>
+            Reference to the logger to write logs.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.ApplicationService.LocalizationSourceName">
+            <summary>
+            Gets/sets name of the localization source that is used in this controller.
+            It's used in <see cref="M:Abp.Application.Services.ApplicationService.L(System.String)"/> and <see cref="M:Abp.Application.Services.ApplicationService.L(System.String,System.Globalization.CultureInfo)"/> methods.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.AuditedEntityDto">
+            <summary>
+            A shortcut of <see cref="T:Abp.Application.Services.Dto.AuditedEntityDto"/> for most used primary key type (<see cref="T:System.Int32"/>).
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.AuditedEntityDto`1">
+            <summary>
+            This class can be inherited for simple Dto objects those are used for entities implement <see cref="T:Abp.Domain.Entities.Auditing.IAudited"/> interface.
+            </summary>
+            <typeparam name="TPrimaryKey">Type of primary key</typeparam>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.CreationAuditedEntityDto`1">
+            <summary>
+            This class can be inherited for simple Dto objects those are used for entities implement <see cref="T:Abp.Domain.Entities.Auditing.ICreationAudited"/> interface.
+            </summary>
+            <typeparam name="TPrimaryKey">Type of primary key</typeparam>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.EntityDto`1">
+            <summary>
+            This base class can be used to simplify defining an entity based DTO.
+            </summary>
+            <typeparam name="TPrimaryKey">Type of the primary key</typeparam>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.IDto">
+            <summary>
+            This interface must be implemented by all DTO classes to identify them by convention.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.EntityDto`1.Id">
+            <summary>
+            Id of the entity.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Services.Dto.CreationAuditedEntityDto`1.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.CreationAuditedEntityDto`1.CreationTime">
+            <summary>
+            Creation date of this entity.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.CreationAuditedEntityDto`1.CreatorUserId">
+            <summary>
+            Creator user's id for this entity.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.AuditedEntityDto`1.LastModificationTime">
+            <summary>
+            Last modification date of this entity.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.AuditedEntityDto`1.LastModifierUserId">
+            <summary>
+            Last modifier user of this entity.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.CreationAuditedEntityDto">
+            <summary>
+             A shortcut of <see cref="T:Abp.Application.Services.Dto.CreationAuditedEntityDto"/> for most used primary key type (<see cref="T:System.Int32"/>).
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.EntityDto">
+            <summary>
+            A shortcut of <see cref="T:Abp.Application.Services.Dto.EntityDto`1"/> for most used primary key type (<see cref="T:System.Int32"/>).
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.IDoubleWayDto">
+            <summary>
+            This interface can be used to mark a DTO as both of <see cref="T:Abp.Application.Services.Dto.IInputDto"/> and <see cref="T:Abp.Application.Services.Dto.IOutputDto"/>.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.IInputDto">
+            <summary>
+            This interface is used to define DTOs those are used as input parameters.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.IOutputDto">
+            <summary>
+            This interface is used to define DTOs those are used as output parameters.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.IHasLongTotalCount">
+            <summary>
+            This interface is defined to standardize to set "Total Count of Items" to a DTO for long type.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.IHasLongTotalCount.TotalCount">
+            <summary>
+            Total count of Items.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.IHasTotalCount">
+            <summary>
+            This interface is defined to standardize to set "Total Count of Items" to a DTO.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.IHasTotalCount.TotalCount">
+            <summary>
+            Total count of Items.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.ILimitedResultRequest">
+            <summary>
+            This interface is defined to standardize to request a limited result.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.ILimitedResultRequest.MaxResultCount">
+            <summary>
+            Max expected result count.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Services.Dto.IPagedResultRequest">
+            <summary>
+            This interface is defined to standardize to request a paged result
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Services.Dto.IPagedResultRequest.SkipCount">
+            <summary>
+            Skip count (beggining of the page).
+            </summary>
+        </member>
+        <member name="T:Abp.Startup.Application.ApplicationLayerInterceptorRegisterer">
+            <summary>
+            This class is used to register interceptors on the Application Layer.
+            </summary>
+        </member>
+        <member name="T:Abp.Application.Authorization.AbpAuthorizeAttribute">
+            <summary>
+            This attribute is used on a method of an Application Service (A class that implements <see cref="T:Abp.Application.Services.IApplicationService"/>)
+            to make that method usable only by authorized users.
+            </summary>
+        </member>
+        <member name="M:Abp.Application.Authorization.AbpAuthorizeAttribute.#ctor(System.String[])">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Application.Authorization.AbpAuthorizeAttribute"/> class.
+            </summary>
+            <param name="permissions">A list of permissions to authorize</param>
+        </member>
+        <member name="P:Abp.Application.Authorization.AbpAuthorizeAttribute.Permissions">
+            <summary>
+            A list of permissions to authorize.
+            </summary>
+        </member>
+        <member name="P:Abp.Application.Authorization.AbpAuthorizeAttribute.RequireAllPermissions">
+            <summary>
+            If this property is set to true, all of the <see cref="P:Abp.Application.Authorization.AbpAuthorizeAttribute.Permissions"/> must be granted.
+            If it's false, at least one of the <see cref="P:Abp.Application.Authorization.AbpAuthorizeAttribute.Permissions"/> must be granted.
+            Default: false.
+            </summary>
+        </member>
+        <member name="T:Abp.Startup.Application.AbpApplicationModule">
+            <summary>
+            This module is used to simplify and standardize building the "Application Layer" of an application.
+            </summary>
+        </member>
+    </members>
+</doc>

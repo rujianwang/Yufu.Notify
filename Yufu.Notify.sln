@@ -24,6 +24,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{BBAC2A36
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yufu.Notify.Tests", "Yufu.Notify.Tests\Yufu.Notify.Tests.csproj", "{AA08FBAA-8C28-432C-8516-CA700FD7CD67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yufu.Notify.Shared", "Yufu.Notify.Shared\Yufu.Notify.Shared.csproj", "{17FC7D87-6727-43E2-B794-15535E764E21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +56,10 @@ Global
 		{AA08FBAA-8C28-432C-8516-CA700FD7CD67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA08FBAA-8C28-432C-8516-CA700FD7CD67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA08FBAA-8C28-432C-8516-CA700FD7CD67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17FC7D87-6727-43E2-B794-15535E764E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17FC7D87-6727-43E2-B794-15535E764E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17FC7D87-6727-43E2-B794-15535E764E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17FC7D87-6727-43E2-B794-15535E764E21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

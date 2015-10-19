@@ -14,12 +14,6 @@ namespace Yufu.Notify.Entities
     [MaxLength(100)]
     public string TemplateId { get; set; }
 
-    [MaxLength(50)]
-    public string TopColor { get; set; }
-
-    [MaxLength(255)]
-    public string Url { get; set; }
-
     public string Body { get; set; }
 
     public QueueStatus QueueStatus { get; set; }

@@ -1,0 +1,420 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Abp.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Abp.Web.Mvc.Authorization.AbpMvcAuthorizeAttribute">
+            <summary>
+            This attribute is used on an action of an MVC <see cref="T:System.Web.Mvc.Controller"/>
+            to make that action usable only by authorized users. 
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Authorization.AbpMvcAuthorizeAttribute.#ctor(System.String[])">
+            <summary>
+            Creates a new instance of <see cref="T:Abp.Web.Mvc.Authorization.AbpMvcAuthorizeAttribute"/> class.
+            </summary>
+            <param name="permissions">A list of permissions to authorize</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Authorization.AbpMvcAuthorizeAttribute.AuthorizeCore(System.Web.HttpContextBase)">
+            <inheritdoc/>
+        </member>
+        <member name="P:Abp.Web.Mvc.Authorization.AbpMvcAuthorizeAttribute.Permissions">
+            <inheritdoc/>
+        </member>
+        <member name="P:Abp.Web.Mvc.Authorization.AbpMvcAuthorizeAttribute.RequireAllPermissions">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.Mvc.Controllers.AbpController">
+            <summary>
+            Base class for all MVC Controllers in Abp system.
+            </summary>
+        </member>
+        <member name="F:Abp.Web.Mvc.Controllers.AbpController._actionStopwatch">
+            <summary>
+            This object i used to measure an action execute duration.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpController.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpController.L(System.String)">
+            <summary>
+            Gets localized string for given key name and current language.
+            </summary>
+            <param name="name">Key name</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpController.L(System.String,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpController.L(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets localized string for given key name and specified culture information.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpController.L(System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpController.IsGrantedAsync(System.String)">
+            <summary>
+            Checks if current user is granted for a permission.
+            </summary>
+            <param name="permissionName">Name of the permission</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpController.IsGranted(System.String)">
+            <summary>
+            Checks if current user is granted for a permission.
+            </summary>
+            <param name="permissionName">Name of the permission</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpController.Json(System.Object,System.String,System.Text.Encoding,System.Web.Mvc.JsonRequestBehavior)">
+            <summary>
+            Json the specified data, contentType, contentEncoding and behavior.
+            </summary>
+            <param name="data">Data.</param>
+            <param name="contentType">Content type.</param>
+            <param name="contentEncoding">Content encoding.</param>
+            <param name="behavior">Behavior.</param>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.AbpSession">
+            <summary>
+            Gets current session information.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.PermissionManager">
+            <summary>
+            Reference to the permission manager.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.SettingManager">
+            <summary>
+            Reference to the setting manager.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.PermissionChecker">
+            <summary>
+            Reference to the permission checker.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.LocalizationManager">
+            <summary>
+            Reference to the localization manager.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.LocalizationSourceName">
+            <summary>
+            Gets/sets name of the localization source that is used in this application service.
+            It must be set in order to use <see cref="M:Abp.Web.Mvc.Controllers.AbpController.L(System.String)"/> and <see cref="M:Abp.Web.Mvc.Controllers.AbpController.L(System.String,System.Globalization.CultureInfo)"/> methods.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.LocalizationSource">
+            <summary>
+            Gets localization source.
+            It's valid if <see cref="P:Abp.Web.Mvc.Controllers.AbpController.LocalizationSourceName"/> is set.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.Logger">
+            <summary>
+            Reference to the logger to write logs.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Controllers.AbpController.CurrentSession">
+            <summary>
+            Gets current session information.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Mvc.Controllers.AbpHandleErrorAttribute">
+            <summary>
+            Used internally by ABP to handle exceptions on MVC actions.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpHandleErrorAttribute.OnException(System.Web.Mvc.ExceptionContext)">
+            <summary>
+            Called when an exception occurs.
+            </summary>
+            <param name="context">The exception context.</param>
+        </member>
+        <member name="T:Abp.Web.Mvc.Controllers.AbpScriptsController">
+            <summary>
+            This controller is used to create client side scripts
+            to work with ABP.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpScriptsController.#ctor(Abp.Web.MultiTenancy.IMultiTenancyScriptManager,Abp.Web.Settings.ISettingScriptManager,Abp.Web.Navigation.INavigationScriptManager,Abp.Web.Localization.ILocalizationScriptManager,Abp.Web.Authorization.IAuthorizationScriptManager,Abp.Web.Sessions.ISessionScriptManager)">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.AbpScriptsController.GetScripts(System.String)">
+            <summary>
+            Gets all needed scripts.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Mvc.Controllers.Results.AbpJsonResult">
+            <summary>
+            This class is used to override returning Json results from MVC controllers.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.Results.AbpJsonResult.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.Results.AbpJsonResult.#ctor(System.Object)">
+            <summary>
+            Constructor with JSON data.
+            </summary>
+            <param name="data">JSON data</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.Results.AbpJsonResult.ExecuteResult(System.Web.Mvc.ControllerContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.Mvc.Controllers.WindsorControllerFactory">
+            <summary>
+            This class is used to allow MVC to use dependency injection system while creating MVC controllers.
+            </summary>
+        </member>
+        <member name="F:Abp.Web.Mvc.Controllers.WindsorControllerFactory._kernel">
+            <summary>
+            Reference to DI kernel.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.WindsorControllerFactory.#ctor(Castle.MicroKernel.IKernel)">
+            <summary>
+            Creates a new instance of WindsorControllerFactory.
+            </summary>
+            <param name="kernel">Reference to DI kernel</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.WindsorControllerFactory.ReleaseController(System.Web.Mvc.IController)">
+            <summary>
+            Called by MVC system and releases/disposes given controller instance.
+            </summary>
+            <param name="controller">Controller instance</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.WindsorControllerFactory.GetControllerInstance(System.Web.Routing.RequestContext,System.Type)">
+            <summary>
+            Called by MVC system and creates controller instance for given controller type.
+            </summary>
+            <param name="requestContext">Request context</param>
+            <param name="controllerType">Controller type</param>
+            <returns></returns>
+        </member>
+        <member name="T:Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions">
+            <summary>
+            TODO: What if resource changes? How to update cache?
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.IncludeScript(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Includes a script to the page with versioning.
+            </summary>
+            <param name="html">Reference to the HtmlHelper object</param>
+            <param name="url">URL of the script file</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Extensions.HtmlHelperResourceExtensions.IncludeStyle(System.Web.Mvc.HtmlHelper,System.String)">
+            <summary>
+            Includes a style to the page with versioning.
+            </summary>
+            <param name="html">Reference to the HtmlHelper object</param>
+            <param name="url">URL of the style file</param>
+        </member>
+        <member name="T:Abp.Web.Mvc.Models.ModelStateExtensions">
+            <summary>
+            TODO: THIS CLASS IS NOT FINISHED AND TESTED YET!
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Mvc.Models.MvcAjaxResponse">
+            <summary>
+            This class is used to create standard responses for ajax requests.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Mvc.Models.MvcAjaxResponse`1">
+            <summary>
+            This class is used to create standard responses for ajax requests.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Models.MvcAjaxResponse`1.#ctor">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Mvc.Models.MvcAjaxResponse"/> object.
+            <see cref="!:AjaxResponse.Success"/> is set as true.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Models.MvcAjaxResponse`1.#ctor(System.Boolean)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Mvc.Models.MvcAjaxResponse"/> object with <see cref="!:AjaxResponse.Success"/> specified.
+            </summary>
+            <param name="success">Indicates success status of the result</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Models.MvcAjaxResponse`1.#ctor(`0)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Mvc.Models.MvcAjaxResponse"/> object with <see cref="!:AjaxResponse.Result"/> specified.
+            <see cref="!:AjaxResponse.Success"/> is set as true.
+            </summary>
+            <param name="result">The actual result object of ajax request</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Models.MvcAjaxResponse`1.#ctor(Abp.Web.Models.ErrorInfo,System.Boolean)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Mvc.Models.MvcAjaxResponse"/> object with <see cref="!:AjaxResponse.Error"/> specified.
+            <see cref="!:AjaxResponse.Success"/> is set as false.
+            </summary>
+            <param name="error">Error details</param>
+            <param name="unAuthorizedRequest">Used to indicate that the current user has no privilege to perform this request</param>
+        </member>
+        <member name="P:Abp.Web.Mvc.Models.MvcAjaxResponse`1.TargetUrl">
+            <summary>
+            This property can be used to redirect user to a specified URL.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Models.MvcAjaxResponse.#ctor">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Mvc.Models.MvcAjaxResponse"/> object.
+            <see cref="!:AjaxResponse.Success"/> is set as true.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Models.MvcAjaxResponse.#ctor(System.Boolean)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Mvc.Models.MvcAjaxResponse"/> object with <see cref="!:AjaxResponse.Success"/> specified.
+            </summary>
+            <param name="success">Indicates success status of the result</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Models.MvcAjaxResponse.#ctor(System.Object)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Mvc.Models.MvcAjaxResponse"/> object with <see cref="!:AjaxResponse.Result"/> specified.
+            <see cref="!:AjaxResponse.Success"/> is set as true.
+            </summary>
+            <param name="result">The actual result object of ajax request</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Models.MvcAjaxResponse.#ctor(Abp.Web.Models.ErrorInfo,System.Boolean)">
+            <summary>
+            Creates an <see cref="T:Abp.Web.Mvc.Models.MvcAjaxResponse"/> object with <see cref="!:AjaxResponse.Error"/> specified.
+            <see cref="!:AjaxResponse.Success"/> is set as false.
+            </summary>
+            <param name="error">Error details</param>
+            <param name="unAuthorizedRequest">Used to indicate that the current user has no privilege to perform this request</param>
+        </member>
+        <member name="T:Abp.Web.Mvc.Resources.WebResourceHelper">
+            <summary>
+            A helper class to simplify expose web resources.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Resources.WebResourceHelper.ExposeEmbeddedResources(System.String,System.Reflection.Assembly,System.String)">
+            <summary>
+            Exposes one or more embedded resources to web clients.
+            It can be used to embed javascript/css files into assemblies and use them in html pages easily.
+            </summary>
+            <param name="rootPath">
+            Root path of the resource. Can include '/' for deeper paths.
+            </param>
+            <param name="assembly">The assembly contains resources</param>
+            <param name="resourceNamespace">Root namespace of the resources</param>
+        </member>
+        <member name="M:Abp.Web.Mvc.Resources.WebResourceHelper.GetEmbeddedResource(System.String)">
+            <summary>
+            Gets an embedded resource file.
+            </summary>
+            <param name="fullResourcePath">Full path of the resource</param>
+            <returns>Embedded resource file</returns>
+        </member>
+        <member name="T:Abp.Web.Mvc.AbpWebMvcModule">
+            <summary>
+            This module is used to build ASP.NET MVC web sites using Abp.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.AbpWebMvcModule.PreInitialize">
+            <inheritdoc/>
+        </member>
+        <member name="M:Abp.Web.Mvc.AbpWebMvcModule.Initialize">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.Mvc.Controllers.ControllerConventionalRegistrar">
+            <summary>
+            Registers all MVC Controllers derived from <see cref="T:System.Web.Mvc.Controller"/>.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Controllers.ControllerConventionalRegistrar.RegisterAssembly(Abp.Dependency.IConventionalRegistrationContext)">
+            <inheritdoc/>
+        </member>
+        <member name="T:Abp.Web.Mvc.Views.AbpWebViewPage">
+            <summary>
+            Base class for all views in Abp system.
+            </summary>
+        </member>
+        <member name="T:Abp.Web.Mvc.Views.AbpWebViewPage`1">
+            <summary>
+            Base class for all views in Abp system.
+            </summary>
+            <typeparam name="TModel">Type of the View Model</typeparam>
+        </member>
+        <member name="M:Abp.Web.Mvc.Views.AbpWebViewPage`1.#ctor">
+            <summary>
+            Constructor.
+            </summary>
+        </member>
+        <member name="M:Abp.Web.Mvc.Views.AbpWebViewPage`1.L(System.String)">
+            <summary>
+            Gets localized string for given key name and current language.
+            </summary>
+            <param name="name">Key name</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Web.Mvc.Views.AbpWebViewPage`1.L(System.String,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Web.Mvc.Views.AbpWebViewPage`1.L(System.String,System.Globalization.CultureInfo)">
+            <summary>
+            Gets localized string for given key name and specified culture information.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Web.Mvc.Views.AbpWebViewPage`1.L(System.String,System.Globalization.CultureInfo,System.Object[])">
+            <summary>
+            Gets localized string for given key name and current language with formatting strings.
+            </summary>
+            <param name="name">Key name</param>
+            <param name="culture">culture information</param>
+            <param name="args">Format arguments</param>
+            <returns>Localized string</returns>
+        </member>
+        <member name="M:Abp.Web.Mvc.Views.AbpWebViewPage`1.IsGranted(System.String)">
+            <summary>
+            Checks if current user is granted for a permission.
+            </summary>
+            <param name="permissionName">Name of the permission</param>
+        </member>
+        <member name="P:Abp.Web.Mvc.Views.AbpWebViewPage`1.ApplicationPath">
+            <summary>
+            Gets the root path of the application.
+            </summary>
+        </member>
+        <member name="P:Abp.Web.Mvc.Views.AbpWebViewPage`1.LocalizationSourceName">
+            <summary>
+            Gets/sets name of the localization source that is used in this controller.
+            It must be set in order to use <see cref="M:Abp.Web.Mvc.Views.AbpWebViewPage`1.L(System.String)"/> and <see cref="M:Abp.Web.Mvc.Views.AbpWebViewPage`1.L(System.String,System.Globalization.CultureInfo)"/> methods.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -100,6 +100,10 @@
     <Compile Include="Migrations\201509290832449_InitialCreate.Designer.cs">
       <DependentUpon>201509290832449_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510190659342_20151019.cs" />
+    <Compile Include="Migrations\201510190659342_20151019.Designer.cs">
+      <DependentUpon>201510190659342_20151019.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -117,6 +121,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201509290832449_InitialCreate.resx">
       <DependentUpon>201509290832449_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510190659342_20151019.resx">
+      <DependentUpon>201510190659342_20151019.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
