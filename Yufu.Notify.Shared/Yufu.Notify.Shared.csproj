@@ -50,9 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WeChatTemplateData\BaseTemplateData.cs" />
-    <Compile Include="WeChatTemplateData\NewBid.cs" />
-    <Compile Include="WeChatTemplateData\YufuWeChatHelper.cs" />
+    <Compile Include="WeChatTemplateData\Dto\NotifyWeChatQueueDto.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -94,6 +94,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\DtoMapper.cs" />
+    <Compile Include="Services\IServices\IWebApiAppService.cs" />
     <Compile Include="NotifyApplicationModule.cs" />
     <Compile Include="NotifyAppServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -102,6 +104,8 @@
     <Compile Include="Services\IServices\IConfigAppSevice.cs" />
     <Compile Include="Services\IServices\INotifyWeChatAppService.cs" />
     <Compile Include="Services\NotifyWeChatAppService.cs" />
+    <Compile Include="Services\WebApiAppService.cs" />
+    <Compile Include="YufuWeChatHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

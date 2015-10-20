@@ -13,8 +13,13 @@ namespace Yufu.Notify
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
+            //DynamicApiControllerBuilder
+            //    .ForAll<IApplicationService>(typeof(NotifyApplicationModule).Assembly, "app")
+            //    .Build();
+
             DynamicApiControllerBuilder
-                .ForAll<IApplicationService>(typeof(NotifyApplicationModule).Assembly, "app")
+                .For<IWebApiAppService>("notify/appservice")
+                .WithConventionalVerbs()
                 .Build();
         }
     }
