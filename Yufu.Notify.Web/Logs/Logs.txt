@@ -2425,3 +2425,43 @@ DEBUG 2015-10-20 18:01:10,126 [1    ] Abp.Localization.LocalizationManager     -
 DEBUG 2015-10-20 18:01:10,126 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
 DEBUG 2015-10-20 18:01:10,876 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
 DEBUG 2015-10-20 18:01:10,909 [1    ] Default                                  - Dynamic web api controller is created for type 'Yufu.Notify.IWebApiAppService' with service name 'notify/appservice'.
+DEBUG 2015-10-21 17:54:58,944 [1    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-21 17:55:00,018 [1    ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-21 17:55:00,022 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.0.3, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,024 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.0.4, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,024 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,024 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.0.4, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,024 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.0.4, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,024 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,024 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.NotifyApplicationModule, Yufu.Notify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,024 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.NotifyCoreModule, Yufu.Notify.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,024 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.NotifyDataModule, Yufu.Notify.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,025 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.Web.NotifyWebModule, Yufu.Notify.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,025 [1    ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.NotifyWebApiModule, Yufu.Notify.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 17:55:00,027 [1    ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-21 17:55:01,227 [1    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-21 17:55:01,231 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-21 17:55:01,232 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: Notify
+DEBUG 2015-10-21 17:55:01,232 [1    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-21 17:55:01,926 [1    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-21 17:55:01,960 [1    ] Default                                  - Dynamic web api controller is created for type 'Yufu.Notify.IWebApiAppService' with service name 'notify/appservice'.
+DEBUG 2015-10-21 18:00:09,957 [18   ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2015-10-21 18:00:10,548 [18   ] Abp.Modules.AbpModuleManager             - Found 11 ABP modules in total.
+DEBUG 2015-10-21 18:00:10,550 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=0.7.0.3, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,551 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=0.7.0.4, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkModule, Abp.EntityFramework, Version=0.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.WebApi.AbpWebApiModule, Abp.Web.Api, Version=0.7.0.4, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebModule, Abp.Web, Version=0.7.0.4, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.Mvc.AbpWebMvcModule, Abp.Web.Mvc, Version=0.7.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.NotifyApplicationModule, Yufu.Notify.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.NotifyCoreModule, Yufu.Notify.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.NotifyDataModule, Yufu.Notify.EntityFramework, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.Web.NotifyWebModule, Yufu.Notify.Web, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,552 [18   ] Abp.Modules.AbpModuleManager             - Loaded module: Yufu.Notify.NotifyWebApiModule, Yufu.Notify.WebApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2015-10-21 18:00:10,554 [18   ] Abp.Modules.AbpModuleManager             - 11 modules loaded.
+DEBUG 2015-10-21 18:00:11,081 [18   ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2015-10-21 18:00:11,084 [18   ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2015-10-21 18:00:11,085 [18   ] Abp.Localization.LocalizationManager     - Initialized localization source: Notify
+DEBUG 2015-10-21 18:00:11,085 [18   ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2015-10-21 18:00:11,435 [18   ] Abp.AutoMapper.AbpAutoMapperModule       - Found 0 classes defines auto mapping attributes
+DEBUG 2015-10-21 18:00:11,456 [18   ] Default                                  - Dynamic web api controller is created for type 'Yufu.Notify.IWebApiAppService' with service name 'notify/appservice'.

@@ -144,6 +144,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="NotifyAppCanAppServiceTests.cs" />
     <Compile Include="NotifyWeChatAppServiceTests.cs" />
     <Compile Include="ApplicationAppSeviceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

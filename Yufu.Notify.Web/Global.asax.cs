@@ -13,8 +13,6 @@ namespace Yufu.Notify.Web
     {
       IocManager.Instance.IocContainer.AddFacility<LoggingFacility>(f => f.UseLog4Net().WithConfig("log4net.config"));
       base.Application_Start(sender, e);
-
-      AccessTokenContainer.Register(ConfigurationManager.AppSettings["AppId"], ConfigurationManager.AppSettings["AppSecret"]);
     }
   }
 }

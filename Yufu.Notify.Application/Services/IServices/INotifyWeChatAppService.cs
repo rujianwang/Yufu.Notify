@@ -11,6 +11,9 @@ namespace Yufu.Notify.Services
     NotifyWeChatQueue QueueGet(int id);
     void QueueDelete(int id);
 
+
+    NotifyWeChatConfig ConfigGet(int applicationId);
+
     SendTemplateMessageResult Send(string accessToken, string data);
   }
 }

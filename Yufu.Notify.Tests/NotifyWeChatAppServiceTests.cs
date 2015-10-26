@@ -61,19 +61,7 @@ namespace Yufu.Notify.Tests
     [TestMethod]
     public void SendTest()
     {
-      var accessToken = AccessTokenContainer.GetAccessToken(ConfigurationManager.AppSettings["AppId"]);
-      var queue = _notifyWeChatAppService.QueueGet(2);
-      var result = _notifyWeChatAppService.Send(accessToken, queue.Body);
-      if (result.errcode == ReturnCode.请求成功)
-      {
-        queue.QueueStatus = QueueStatus.Success;
-      }
-      else
-      {
-        queue.QueueStatus = QueueStatus.Fail;
-      }
-      queue.QueueStatusCode = result.errcode.ToString();
-      _notifyWeChatAppService.QueueSave(queue);
+      
     }
   }
 }

@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App\Dto\NotifyAppQueueDto.cs" />
     <Compile Include="WeChatTemplateData\Dto\NotifyWeChatQueueDto.cs" />
   </ItemGroup>
   <ItemGroup>
