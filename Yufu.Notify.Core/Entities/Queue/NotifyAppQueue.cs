@@ -14,6 +14,7 @@ namespace Yufu.Notify.Entities
 
     public PushType PushType { get; set; }
 
+    [MaxLength(10)]
     public string Platforms { get; set; }
 
     public string List { get; set; }
@@ -28,5 +29,8 @@ namespace Yufu.Notify.Entities
 
     [MaxLength(50)]
     public string QueueStatusCode { get; set; }
+
+    [MaxLength(50)]
+    public string QueueStatusMsg { get; set; }
   }
 }

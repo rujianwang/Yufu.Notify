@@ -10,24 +10,23 @@ namespace Yufu.Notify.Tests
     private IAppAppService _appAppService;
     private IWebApiAppService _webApiAppService;
 
-    public NotifyAppCanAppServiceTests(IWebApiAppService webApiAppService)
+    public NotifyAppCanAppServiceTests()
     {
-      _webApiAppService = webApiAppService;
       _appAppService = LocalIocManager.IocContainer.Resolve<IAppAppService>();
+      _webApiAppService = LocalIocManager.IocContainer.Resolve<IWebApiAppService>();
     }
 
     [TestMethod]
-    public void TestPush()
+    public void TestPushSoftToken()
     {
-
       _webApiAppService.PostCreateNotifyAppQueue(new NotifyAppQueueDto
       {
         NotifyApplicationId = 1,
         AppId = "11428077",//恒物流发货版
         Body = "{}",
         PushType = PushType.SoftToken,
-        List = "",
-        Platforms = "0,1",//1：android;0：ios
+        List = "c35c279fb323e889bdb1eeb0ed67a8e6",
+        Platforms = "1",//1：android;0：ios
         Title = "推送测试"
       });
 

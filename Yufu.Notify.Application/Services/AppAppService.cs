@@ -47,7 +47,7 @@ namespace Yufu.Notify.Services
     {
       var config = ConfigGet(entity.NotifyApplicationId);
 
-      var result = "";
+      PushJson result = new PushJson();
       switch (entity.PushType)
       {
         case PushType.SoftToken:
@@ -55,35 +55,37 @@ namespace Yufu.Notify.Services
           result = PushHelper.SendBySoftTokens(config.Authtoken, config.Email, entity.AppId, entity.Title, entity.Body,
             entity.Platforms,
             entity.List);
-
           break;
         }
         case PushType.AppId:
         {
           result = PushHelper.SendByAppId(config.Authtoken, config.Email, entity.AppId, entity.Title, entity.Body);
-          entity.QueueStatusCode = result;
+          entity.QueueStatusCode = result.status;
+          entity.QueueStatusMsg = result.info;
           break;
         }
         case PushType.UserId:
         {
-          result = PushHelper.SendByUserIds(config.Authtoken, config.Email, entity.AppId, entity.Title, entity.Body,
+          result = PushHelper.SendByUserIds(config.Authtoken, config.Email, entity.AppId, entity.Title, entity.Body, entity.Platforms,
             entity.List);
-          entity.QueueStatusCode = result;
           break;
         }
         default:
-          {break;}
-      }
-      if (!string.IsNullOrEmpty(result))
-      {
-        entity.QueueStatus = QueueStatus.Fail; //默认推送失败
-        entity.QueueStatusCode = result;
-        if (result == "ok")
         {
-          entity.QueueStatus = QueueStatus.Success;
+          break;
         }
-        QueueSave(entity);
       }
+      entity.QueueStatusMsg = result.info;
+      entity.QueueStatusCode = result.status;
+      if (result.status == "ok")
+      {
+        entity.QueueStatus = QueueStatus.Success;
+      }
+      else
+      {
+        entity.QueueStatus = QueueStatus.Fail;
+      }
+      QueueSave(entity);
     }
   }
 }

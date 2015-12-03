@@ -8,39 +8,39 @@ namespace Yufu.Notify
 {
   public class PushHelper
   {
-    public static string SendByUserIds(string authtoken, string email, string appId, string title, string body, string userIds)
+    public static PushJson SendBySoftTokens(string authtoken, string email, string appId, string title, string body, string platforms, string softTokens)
     {
       var stringBuilder = new StringBuilder();
       stringBuilder.Append("authtoken=" + authtoken);
       stringBuilder.Append("&email=" + email);
       stringBuilder.Append("&appId=" + appId);
-      stringBuilder.Append("&platform=1");
-      stringBuilder.Append("&userIdListStr=" + userIds);
-      stringBuilder.Append("&title=" + title);
-      stringBuilder.Append("&body=" + body);
-      return SendHttpsPost(PushUrl + "sendByUid", stringBuilder.ToString());
-    }
-
-    public static string SendBySoftTokens(string authtoken, string email, string appId, string title, string body, string platform, string softTokens)
-    {
-      var stringBuilder = new StringBuilder();
-      stringBuilder.Append("authtoken=" + authtoken);
-      stringBuilder.Append("&email=" + email);
-      stringBuilder.Append("&appId=" + appId);
-      stringBuilder.Append("&platform=" + platform);
+      stringBuilder.Append("&platforms=" + platforms);
       stringBuilder.Append("&softTokenListStr=" + softTokens);
       stringBuilder.Append("&title=" + title);
       stringBuilder.Append("&body=" + body);
       return SendHttpsPost(PushUrl + "sendBySoftToken", stringBuilder.ToString());
     }
 
-    public static string SendByAppId(string authtoken, string email, string appId, string title, string body, string platform = "0,1")
+    public static PushJson SendByUserIds(string authtoken, string email, string appId, string title, string body, string platforms, string userIds)
     {
       var stringBuilder = new StringBuilder();
       stringBuilder.Append("authtoken=" + authtoken);
       stringBuilder.Append("&email=" + email);
       stringBuilder.Append("&appId=" + appId);
-      stringBuilder.Append("&platform=" + platform);
+      stringBuilder.Append("&platforms=" + platforms);
+      stringBuilder.Append("&userIdListStr=" + userIds);
+      stringBuilder.Append("&title=" + title);
+      stringBuilder.Append("&body=" + body);
+      return SendHttpsPost(PushUrl + "sendByUid", stringBuilder.ToString());
+    }
+
+    public static PushJson SendByAppId(string authtoken, string email, string appId, string title, string body, string platform = "0,1")
+    {
+      var stringBuilder = new StringBuilder();
+      stringBuilder.Append("authtoken=" + authtoken);
+      stringBuilder.Append("&email=" + email);
+      stringBuilder.Append("&appId=" + appId);
+      stringBuilder.Append("&platforms=" + platform);
       stringBuilder.Append("&title=" + title);
       stringBuilder.Append("&body=" + body);
       return SendHttpsPost(PushUrl + "send", stringBuilder.ToString());
@@ -52,7 +52,7 @@ namespace Yufu.Notify
     /// <param name="url"></param>
     /// <param name="param"></param>
     /// <returns></returns>
-    private static string SendHttpsPost(string url, string param)
+    private static PushJson SendHttpsPost(string url, string param)
     {
       var request =
         WebRequest.Create(url)
@@ -74,7 +74,7 @@ namespace Yufu.Notify
         }
       }
       var json = JsonConvert.DeserializeObject<PushJson>(responseFromServer);
-      return json.status;
+      return json;
     }
 
     public static string PushUrl

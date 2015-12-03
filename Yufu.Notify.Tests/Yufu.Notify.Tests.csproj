@@ -144,10 +144,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Dto\BaseTemplateData.cs" />
+    <Compile Include="Dto\CommonTemplateData.cs" />
     <Compile Include="NotifyAppCanAppServiceTests.cs" />
     <Compile Include="NotifyWeChatAppServiceTests.cs" />
     <Compile Include="ApplicationAppSeviceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PushHelperTests.cs" />
     <Compile Include="YufuTestBase.cs" />
   </ItemGroup>
   <ItemGroup>

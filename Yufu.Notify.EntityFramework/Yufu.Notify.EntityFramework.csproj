@@ -116,6 +116,10 @@
     <Compile Include="Migrations\201510260152453_2015102602.Designer.cs">
       <DependentUpon>201510260152453_2015102602.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510270118409_20151027.cs" />
+    <Compile Include="Migrations\201510270118409_20151027.Designer.cs">
+      <DependentUpon>201510270118409_20151027.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyDataModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201510260152453_2015102602.resx">
       <DependentUpon>201510260152453_2015102602.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510270118409_20151027.resx">
+      <DependentUpon>201510270118409_20151027.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

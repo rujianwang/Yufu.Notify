@@ -10,7 +10,6 @@ namespace Yufu.Notify.Tests
   {
     public YufuTestBase()
     {
-      AccessTokenContainer.Register(ConfigurationManager.AppSettings["AppId"], ConfigurationManager.AppSettings["AppSecret"]);
     }
 
     protected override void AddModules(ITypeList<AbpModule> modules)
